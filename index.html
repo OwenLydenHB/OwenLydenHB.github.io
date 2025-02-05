@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple HTML Interface</title>
+    <title>Add Two Values</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,6 +20,10 @@
         main {
             margin: 20px 0;
         }
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
         button {
             background-color: #4CAF50;
             color: white;
@@ -30,15 +34,29 @@
         button:hover {
             background-color: #45a049;
         }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Simple HTML Interface</h1>
+        <h1>Add Two Values</h1>
     </header>
     <main>
-        <p>This is a simple HTML page with a header, a paragraph, and a button.</p>
-        <button onclick="alert('Button clicked!')">Click Me</button>
+        <input type="number" id="value1" placeholder="Enter first value">
+        <input type="number" id="value2" placeholder="Enter second value">
+        <button onclick="addValues()">Add</button>
+        <div id="result"></div>
     </main>
+    <script>
+        function addValues() {
+            var value1 = parseFloat(document.getElementById('value1').value);
+            var value2 = parseFloat(document.getElementById('value2').value);
+            var result = value1 + value2;
+            document.getElementById('result').innerText = 'Result: ' + result;
+        }
+    </script>
 </body>
 </html>
